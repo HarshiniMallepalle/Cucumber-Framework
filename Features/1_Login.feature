@@ -6,6 +6,7 @@ Given User is on "LoginPage"
 When user enter into Textbox "Username" "harshini@software.com"
 Then user enter into Textbox "Password" ""
 Then click on  Button "Login"
+Then User ThreadSleepWait 2000
 And validate text "ErrorMessage" "Please enter your password."
 
 @TC2 @regression @story1 @priority1
@@ -14,6 +15,7 @@ Given User is on "LoginPage"
 When user enter into Textbox "Username" "harshini@software.com"
 Then user enter into Textbox "Password" "Test@123"
 Then click on  Button "Login"
+Then User ThreadSleepWait 2000
 And validate title "Title" "Home Page ~ Salesforce - Developer Edition"
 
 @TC3
@@ -23,8 +25,11 @@ When user enter into Textbox "Username" "harshini@software.com"
 Then user enter into Textbox "Password" "Test@123"
 When check the Box "RememberMe"
 Then click on  Button "Login"
-Then click on  Button "UserMenuDropDown"
+Given User is on "UserMenuDropDownPage"
+Then click on  Button "UserMenuDropDownList"
 Then click on  Button "Logout"
+Given User is on "LoginPage"
+Then User ThreadSleepWait 2000
 And validate text "UsernameIdentification" "harshini@software.com"
 
 @TC4A
@@ -33,6 +38,7 @@ Given User is on "LoginPage"
 When check the Box "ForgotPassword"
 Then user enter into Textbox "UsernameInForgotPswd" "harshini@software.com"
 Then click on  Button "Continue"
+Then User ThreadSleepWait 2000
 And validate text "Text" "Check Your Email"
 
 @TC4B
@@ -41,4 +47,15 @@ Given User is on "LoginPage"
 When user enter into Textbox "Username" "123"
 Then user enter into Textbox "Password" "22131"
 Then click on  Button "Login"
+Then User ThreadSleepWait 2000
 And validate text "Text1" "Please check your username and password. If you still can't log in, contact your Salesforce administrator."
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
 package com.training.steps;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -8,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.training.base.BasePage;
 import com.training.base.BaseTest;
+import com.training.page.UserMenuDropDownPage;
 import com.training.pagefactory.PageFactory;
 
 import io.cucumber.java.After;
@@ -18,9 +20,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Steps extends BaseTest {
 
+// public static String UniqueName;
+
 	PageFactory pageFactory = new PageFactory();
 	BasePage page;
+	public String UniqueNames = page.UniqueName;
 
+	
 	@Before
 	public void setup() throws Exception {
 		launchapplicationH();
@@ -38,36 +44,117 @@ public class Steps extends BaseTest {
 		page.enterintoTextbox(logicalName, Value);
 	}
 
+	@Then("user enter into Name {string}")
+	public void user_enter_into_name(String logicalName) {
+		// UniqueName=RandomStringUtils.randomAlphanumeric(6);
+		page.enterintoTextbox(logicalName, UniqueNames);
+	}
+
 	@Then("click on  Button {string}")
 	public void click_on_button(String logicalName) {
 		page.clickonButton(logicalName);
 	}
-	
+
 	@When("check the Box {string}")
 	public void check_the_box(String logicalName) {
-	  page.chechTheBox(logicalName);  
+		page.checkTheBox(logicalName);
 	}
-	
+
 	@Then("click on  Link {string}")
 	public void click_on_link(String logicalName) {
-	  page.clickTheLink(logicalName);
+		page.clickTheLink(logicalName);
+	}
+
+	@Then("clear the Textbox {string}")
+	public void clear_the_textbox(String logicalName) {
+		page.clearTextboxField(logicalName);
+	}
+
+	@Then("Switch to alert accept")
+	public void switch_to_alert_accept() {
+		page.switchToAlertAccept();
+	}
+
+	@Then("Switch to ActiveElement")
+	public void switch_to_active_element() {
+		page.switchToActiveElement();
+	}
+
+	@Then("switch to frame {string}")
+	public void switch_to_frame(String logicalName) {
+		page.switchToFrame(logicalName);
+	}
+
+	@Then("Switch to NewWindow {int}")
+	public void switch_to_new_window(Integer number) {
+		page.switchToNewWindow(number);
+	}
+
+	@Then("close Newwindow")
+	public void close_newwindow() {
+		page.closeNewWindow();
+	}
+
+	@Then("switch to parentFrame")
+	public void switch_to_parent_frame() {
+		page.switchToParentFrame();
+	}
+
+	@Then("select from DropDown {string} {string}")
+	public void select_from_drop_down(String logicalName, String Value) {
+		page.selectFromDropdown(logicalName, Value);
+	}
+
+	@Then("mouseHover {string}")
+	public void mouse_hover(String logicalName) {
+		page.mouseHover(logicalName);
+	}
+
+	@Then("crop photo {string}")
+	public void crop_photo(String logicalName) {
+		page.cropper(logicalName);
 	}
 
 	@Then("validate text {string} {string}")
-	public void validate_error(String logicalName, String Value) throws InterruptedException {
-	page.validateText(logicalName, Value);
+	public void validate_text(String logicalName, String Value) {
+		page.validateText(logicalName, Value);
 	}
-	
+
+//	@Then("validate ValueFromList {string} {string}")
+//	public void validate_value_from_list(String logicalName, String Value) {
+//	  page.validateValueFromList(logicalName, Value);
+//	}
+
+	@Then("validate ValueFromList {string}")
+	public void validate_value_from_list(String logicalName) {
+		page.validateValueFromList(logicalName, UniqueNames);
+	}
+
+	@Then("validate Dropdown {string}")
+	public void validate_dropdown(String logicalName) {
+		page.validateTheElements(logicalName);
+	}
+
+	@Then("validate DropdownOppty {string}")
+	public void validate_dropdown_oppty(String logicalName) {
+		page.validateTheElementsOppty(logicalName);
+	}
+
 	@Then("validate title {string} {string}")
-	public void validate_title(String logicalName, String Value) throws InterruptedException {
-	  page.validateTitle(Value);
+	public void validate_title(String logicalName, String Value) {
+		page.validateTitle(Value);
 	}
-	
+
+	@Then("User ThreadSleepWait {int}")
+	public void user_thread_sleep_wait(Integer time) throws InterruptedException {
+		page.ThreadSleepWait(time);
+	}
+
 	@After
 	public void teardown(Scenario scenario) {
 		byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(screenshot, "image/png", scenario.getName());
-		driver.close();
+		// driver.close();
 		driver = null;
 	}
 

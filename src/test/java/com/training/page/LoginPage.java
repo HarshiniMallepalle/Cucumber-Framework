@@ -18,8 +18,6 @@ public class LoginPage extends BasePage{
 		addObject("Login",By.name("Login"));
 		addObject("ErrorMessage",By.id("error"));
 		addObject("RememberMe",By.id("rememberUn"));
-		addObject("UserMenuDropDown",By.id("userNav-arrow"));
-		addObject("Logout",By.xpath("//a[text()='Logout']"));
 		addObject("UsernameIdentification",By.xpath("//span[@id='idcard-identity']"));
 		addObject("ForgotPassword",By.id("forgot_password_link"));
 		addObject("UsernameInForgotPswd",By.id("un"));
