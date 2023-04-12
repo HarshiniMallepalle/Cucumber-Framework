@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
                  glue= {"com.training.steps"},
                  plugin= {"pretty","html:target/cucumber-reports/cucumber.html",
                 		           "json:target/cucumber-reports/cucumber.json"},
-                 tags="@TC19"
+                 tags="@TC16"
 				)
 
 public class Runner {

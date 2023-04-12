@@ -26,7 +26,6 @@ public class Steps extends BaseTest {
 	BasePage page;
 	public String UniqueNames = page.UniqueName;
 
-	
 	@Before
 	public void setup() throws Exception {
 		launchapplicationH();
@@ -127,9 +126,14 @@ public class Steps extends BaseTest {
 
 	@Then("validate ValueFromList {string}")
 	public void validate_value_from_list(String logicalName) {
-		page.validateValueFromList(logicalName, UniqueNames);
+		page.validateValueAccountList(logicalName, UniqueNames);
 	}
 
+	@Then("validate ValueLeadList {string} {string}")
+	public void validate_value_lead_list(String logicalName, String a) {
+		page.validateLeadsList(logicalName, a);
+	}
+	
 	@Then("validate Dropdown {string}")
 	public void validate_dropdown(String logicalName) {
 		page.validateTheElements(logicalName);

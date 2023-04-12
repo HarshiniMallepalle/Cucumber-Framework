@@ -122,12 +122,19 @@ public class BasePage {
 		Assert.assertEquals(ActualValue, Value);
 	}
 
-	public void validateValueFromList(String LogicalName, String ValueA) {
+	public void validateValueAccountList(String LogicalName, String ValueA) {
 		WebElement element = getElementH(LogicalName);
 		Select select = new Select(element);
-		// String a=UniqueName.getText();//getText not available
+		 //String a=UniqueName.getText();//getText not available
 		select.selectByVisibleText(UniqueName);
 		Assert.assertEquals(UniqueName, ValueA);
+	}
+	
+	public void validateLeadsList(String LogicalName, String a) {
+		WebElement element = getElementH(LogicalName);
+       	Select select = new Select(element);
+		String Actualvalue=select.getFirstSelectedOption().getText();
+		Assert.assertEquals(Actualvalue, a);
 	}
 
 	public void validateTitle(String ExceptedValue) {
@@ -172,6 +179,22 @@ public class BasePage {
 		String ExceptedList[] = { "All Opportunities", "Closing Next Month", "Closing This Month", "My Opportunities",
 				"New Last Week", "New This Week", "Opportunity Pipeline", "Private", "Recently Viewed Opportunities",
 				"Won" };
+		List<WebElement> UserMenuList = element;
+		int ListSize = UserMenuList.size();
+		for (WebElement UserDropDown : UserMenuList) {
+			System.out.println(UserDropDown.getText());
+			for (int i = 0; i < ListSize; i++) {
+				Assert.assertTrue(ExceptedList.length == ListSize);
+				Assert.assertTrue(ExceptedList[i].equals(UserMenuList.get(i).getText()));
+			}
+		}
+	}
+	
+	public void validateTheElementsLeads(String LogicalName) {
+		List<WebElement> element = getElementsH(LogicalName);
+		WaitForElements(element);
+		String ExceptedList[] = { "All Open Leads", "My Unread Leads", "Recently Viewed Leads", "Today's Leads",
+				"View - Custom 1", "View - Custom 2" };
 		List<WebElement> UserMenuList = element;
 		int ListSize = UserMenuList.size();
 		for (WebElement UserDropDown : UserMenuList) {

@@ -52,7 +52,7 @@ Then crop photo "CropSW"
 Then User ThreadSleepWait 3000
 Then crop photo "CropSE"
 Then click on  Button "SaveFinal"
-Then User ThreadSleepWait 3000
+Then User ThreadSleepWait 4000
 And validate title "Title" "User: Sobha Harshini ~ Salesforce - Developer Edition"
 
 @TC7

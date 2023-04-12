@@ -55,7 +55,7 @@ Then Switch to NewWindow 1
 Then switch to frame "Frame"
 Then click on  Link "CampaingLink"
 Then Switch to NewWindow 0
-Then click on  Button "SaveOppty"
+Then click on  Button "Save"
 And validate title "Title" "Opportunity: SHPSPSS ~ Salesforce - Developer Edition"
 
 

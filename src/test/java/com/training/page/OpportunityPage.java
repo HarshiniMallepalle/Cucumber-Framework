@@ -28,20 +28,14 @@ public class OpportunityPage extends BasePage {
 		addObject("LeadSource",By.id("opp6"));
 		addObject("CampaingLink",By.xpath("//a[text()='Harshini']"));
 		addObject("Campaing",By.id("opp17"));
-		addObject("SaveOppty",By.xpath("//td[@id='topButtonRow']//input[@name='save']"));
+		addObject("Save",By.xpath("//td[@id='topButtonRow']//input[@name='save']"));
 		addObject("CampaingSearchIcon",By.xpath("//a[@title='Primary Campaign Source Lookup (New Window)']//img[@class='lookupIcon']"));
 		addObject("Pipeline",By.xpath("//a[text()='Opportunity Pipeline']"));
 		addObject("StuckOpportunities",By.xpath("//a[text()='Stuck Opportunities']"));
 		addObject("Interval",By.id("quarter_q"));
 		addObject("Include",By.id("open"));
 		addObject("RunReport",By.name("go"));
-		//addObject("Probability",By.xpath("opp12"));
-		//addObject("Probability",By.xpath("opp12"));
-
-
-
-		
-		
+	
 	}
 
 }

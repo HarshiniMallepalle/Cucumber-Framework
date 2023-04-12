@@ -36,10 +36,11 @@ Then user enter into Name "EnterViewname"
 Then click on  Button "EnterViewUniqueName"
 Then User ThreadSleepWait 2000
 Then clear the Textbox "EnterViewUniqueName"
+Then User ThreadSleepWait 2000
 Then user enter into Name "EnterViewUniqueName" 
 Then click on  Button "Save"
 Then User ThreadSleepWait 3000
-Then validate ValueFromList "ViewListBox" 
+	Then validate ValueFromList "ViewListBox" 
 
 
 @TC12
