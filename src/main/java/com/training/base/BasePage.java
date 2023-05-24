@@ -1,5 +1,6 @@
 package com.training.base;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +19,7 @@ import io.cucumber.java.en.Then;
 
 public class BasePage {
 
-	public static String UniqueName = RandomStringUtils.randomAlphanumeric(6);
+	//public static String UniqueName = RandomStringUtils.randomAlphanumeric(6);
 
 	public WebDriver driver;
 
@@ -54,6 +55,10 @@ public class BasePage {
 		WebElement element = getElementH(LogicalName);
 		ExcplictWait(60, element);
 		element.click();
+	}
+	
+	public void checkRememberMeSelected(String LogicalName) {
+
 	}
 
 	public void clickTheLink(String LogicalName) {
@@ -122,21 +127,13 @@ public class BasePage {
 		Assert.assertEquals(ActualValue, Value);
 	}
 
-	public void validateValueAccountList(String LogicalName, String ValueA) {
+	public void validateValueList(String LogicalName, String ValueA) {
 		WebElement element = getElementH(LogicalName);
 		Select select = new Select(element);
-		 //String a=UniqueName.getText();//getText not available
-		select.selectByVisibleText(UniqueName);
-		Assert.assertEquals(UniqueName, ValueA);
+		String Actual = select.getFirstSelectedOption().getText();
+		Assert.assertEquals(Actual, ValueA);
 	}
 	
-	public void validateLeadsList(String LogicalName, String a) {
-		WebElement element = getElementH(LogicalName);
-       	Select select = new Select(element);
-		String Actualvalue=select.getFirstSelectedOption().getText();
-		Assert.assertEquals(Actualvalue, a);
-	}
-
 	public void validateTitle(String ExceptedValue) {
 		String ActualVaue = driver.getTitle();
 		Assert.assertEquals(ActualVaue, ExceptedValue);
@@ -153,58 +150,21 @@ public class BasePage {
 
 	private List<WebElement> getElementsH(String LogicalName) {
 		By by = ObjectRepo.get(LogicalName);
-		List<WebElement> element = (List<WebElement>) driver.findElements(by);
+		List<WebElement> element = driver.findElements(by);
 		return element;
 	}
 
-	public void validateTheElements(String LogicalName) {
+	public void validateTheElements(String LogicalName,List<String> ExpectedOptions) {
 		List<WebElement> element = getElementsH(LogicalName);
 		WaitForElements(element);
-		String ExceptedList[] = { "My Profile", "My Settings", "Developer Console", "Switch to Lightning Experience",
-				"Logout" };
-		List<WebElement> UserMenuList = element;
-		int ListSize = UserMenuList.size();
-		for (WebElement UserDropDown : UserMenuList) {
-			System.out.println(UserDropDown.getText());
-			for (int i = 0; i < ListSize; i++) {
-				Assert.assertTrue(ExceptedList.length == ListSize);
-				Assert.assertTrue(ExceptedList[i].equals(UserMenuList.get(i).getText()));
-			}
+		List<String> ActualOptions = new ArrayList<String>();
+		for (WebElement elementList : element) {
+			//Here we r adding list of elements to actualAllOptions List
+			ActualOptions.add(elementList.getText());
 		}
+			Assert.assertEquals(ActualOptions,ExpectedOptions);
 	}
 
-	public void validateTheElementsOppty(String LogicalName) {
-		List<WebElement> element = getElementsH(LogicalName);
-		WaitForElements(element);
-		String ExceptedList[] = { "All Opportunities", "Closing Next Month", "Closing This Month", "My Opportunities",
-				"New Last Week", "New This Week", "Opportunity Pipeline", "Private", "Recently Viewed Opportunities",
-				"Won" };
-		List<WebElement> UserMenuList = element;
-		int ListSize = UserMenuList.size();
-		for (WebElement UserDropDown : UserMenuList) {
-			System.out.println(UserDropDown.getText());
-			for (int i = 0; i < ListSize; i++) {
-				Assert.assertTrue(ExceptedList.length == ListSize);
-				Assert.assertTrue(ExceptedList[i].equals(UserMenuList.get(i).getText()));
-			}
-		}
-	}
-	
-	public void validateTheElementsLeads(String LogicalName) {
-		List<WebElement> element = getElementsH(LogicalName);
-		WaitForElements(element);
-		String ExceptedList[] = { "All Open Leads", "My Unread Leads", "Recently Viewed Leads", "Today's Leads",
-				"View - Custom 1", "View - Custom 2" };
-		List<WebElement> UserMenuList = element;
-		int ListSize = UserMenuList.size();
-		for (WebElement UserDropDown : UserMenuList) {
-			System.out.println(UserDropDown.getText());
-			for (int i = 0; i < ListSize; i++) {
-				Assert.assertTrue(ExceptedList.length == ListSize);
-				Assert.assertTrue(ExceptedList[i].equals(UserMenuList.get(i).getText()));
-			}
-		}
-	}
 
 	private void WaitForElements(List<WebElement> element) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);

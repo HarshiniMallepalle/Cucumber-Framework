@@ -31,9 +31,16 @@ Then Switch to ActiveElement
 Then click on  Link "ClosePopUp"
 Given User is on "LeadsPage"
 Then User ThreadSleepWait 3000
-#Then click on  Button "ViewLeads"
-#Then User ThreadSleepWait 3000
-#Then validate Dropdown "LeadsDropDown"
+Then click on  Button "ViewLeads"
+Then User ThreadSleepWait 3000
+Then validate Dropdown "LeadsDropDown"
+|All Open Leads|
+|My Unread Leads|
+|Recently Viewed Leads|
+|Today's Leads|
+|View - Custom 1|
+|View - Custom 2|
+
 
 @TC22
 Scenario: TC22 LeadsDropDown

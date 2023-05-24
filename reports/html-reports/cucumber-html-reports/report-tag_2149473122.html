@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>Cucumber</td>
         <td>1</td>
-      <td>05 Apr 2023, 17:41</td>
+      <td>01 May 2023, 08:51</td>
     </tr>
   </tbody>
 </table>
@@ -129,19 +129,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@TC2</td>
-          <td      class="passed"    >4</td>
-          <td      class="failed"    >1</td>
+          <td      class="passed"    >6</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
-          <td class="total">5</td>
+          <td >0</td>
+          <td class="total">6</td>
 
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="4451924700">4.451</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="12774000000">12.774</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -186,12 +186,12 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">4.451</span>
+  <span class="lead-duration duration">12.774</span>
 
 
-  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">TC2 Login into  SalesForce with valid username and password</span>
 
@@ -202,7 +202,7 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
 
 
   <div class="inner-level hooks-element-before">
@@ -224,7 +224,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">com.training.steps.Steps.setup()</span>
 
-  <span class="lead-duration duration">1.163</span>
+  <span class="lead-duration duration">13.189</span>
 
           </div>
 
@@ -241,9 +241,9 @@ $(document).ready(function() {
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -253,7 +253,7 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-3" class="inner-level collapse collapsable-details ">
       <div class="step">
 
 
@@ -261,7 +261,7 @@ $(document).ready(function() {
   <span class="keyword indention">Given</span>
   <span class="name">User is on <span class="argument">&quot;LoginPage&quot;</span></span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.009</span>
 
 </div>
 
@@ -288,7 +288,7 @@ $(document).ready(function() {
   <span class="keyword indention">When</span>
   <span class="name">user enter into Textbox <span class="argument">&quot;Username&quot;</span> <span class="argument">&quot;harshini@software.com&quot;</span></span>
 
-  <span class="lead-duration duration">0.166</span>
+  <span class="lead-duration duration">0.151</span>
 
 </div>
 
@@ -315,7 +315,7 @@ $(document).ready(function() {
   <span class="keyword indention">Then</span>
   <span class="name">user enter into Textbox <span class="argument">&quot;Password&quot;</span> <span class="argument">&quot;Test@123&quot;</span></span>
 
-  <span class="lead-duration duration">0.104</span>
+  <span class="lead-duration duration">0.120</span>
 
 </div>
 
@@ -342,7 +342,7 @@ $(document).ready(function() {
   <span class="keyword indention">Then</span>
   <span class="name">click on  Button <span class="argument">&quot;Login&quot;</span></span>
 
-  <span class="lead-duration duration">0.456</span>
+  <span class="lead-duration duration">7.440</span>
 
 </div>
 
@@ -365,11 +365,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And failed">
-  <span class="keyword indention">And</span>
-  <span class="name">validate title <span class="argument">&quot;Title&quot;</span> <span class="argument">&quot;Home Page ~ Salesforce - Developer Edition&quot;</span></span>
+<div class="brief step-name-Then passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">User ThreadSleepWait <span class="argument">2000</span></span>
 
-  <span class="lead-duration duration">3.723</span>
+  <span class="lead-duration duration">2.003</span>
 
 </div>
 
@@ -378,26 +378,32 @@ $(document).ready(function() {
 
 
 
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
-          <a>java.lang.AssertionError:</a>
+
+
+
+
+
+
+
+
+
+
       </div>
-      <div id="msg-4" class="collapse collapsable-details  in ">
-        <pre>java.lang.AssertionError: expected [Home Page ~ Salesforce - Developer Edition] but found []
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at com.training.base.BasePage.validateTitle(BasePage.java:70)
-	at com.training.steps.Steps.validate_title(Steps.java:68)
-	at &#10045;.validate title &quot;Title&quot; &quot;Home Page ~ Salesforce - Developer Edition&quot;(file:///C:/Users/harsh/eclipse-workspace/CucumberFramework/Features/1_Login.feature:17)
-</pre>
-      </div>
-    </div>
-  </div>
+      <div class="step">
+
+
+<div class="brief step-name-And passed">
+  <span class="keyword indention">And</span>
+  <span class="name">validate title <span class="argument">&quot;Title&quot;</span> <span class="argument">&quot;Home Page ~ Salesforce - Developer Edition&quot;</span></span>
+
+  <span class="lead-duration duration">3.051</span>
+
+</div>
+
+
+
+
+
 
 
 
@@ -417,7 +423,7 @@ $(document).ready(function() {
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
 
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -429,13 +435,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-5" class="inner-level collapse collapsable-details ">
+    <div id="after-4" class="inner-level collapse collapsable-details ">
         <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">com.training.steps.Steps.teardown(io.cucumber.java.Scenario)</span>
 
-  <span class="lead-duration duration">0.163</span>
+  <span class="lead-duration duration">0.237</span>
 
           </div>
 
@@ -446,15 +452,15 @@ $(document).ready(function() {
 
   <div class="embeddings inner-level">
   <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding-6" class="collapsable-control">
+    <div data-toggle="collapse" data-target="#embedding-5" class="collapsable-control">
       <a>TC2 Login into  SalesForce with valid username and password</a>
-      <a href="embeddings/embedding_1123258939.png" download target="_blank">
+      <a href="embeddings/embedding_204189025.png" download target="_blank">
         <span class="download-button glyphicon glyphicon-download-alt"></span>
       </a>
     </div>
-    <div id="embedding-6" class="collapse collapsable-details ">
+    <div id="embedding-5" class="collapse collapsable-details ">
       <div class="embedding-content">
-        <img src="embeddings/embedding_1123258939.png">
+        <img src="embeddings/embedding_204189025.png">
       </div>
     </div>
   </div>

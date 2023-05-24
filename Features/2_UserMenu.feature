@@ -9,6 +9,12 @@ Then click on  Button "Login"
 Given User is on "UserMenuDropDownPage"
 Then click on  Link "UserMenuDropDown"
 Then validate Dropdown "DropDownText"
+|My Profile|
+|My Settings|
+|Developer Console|
+|Switch to Lightning Experience|
+|Logout|
+
 
 
 @TC6

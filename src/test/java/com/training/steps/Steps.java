@@ -1,5 +1,7 @@
 package com.training.steps;
 
+import java.util.List;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -12,6 +14,7 @@ import com.training.base.BaseTest;
 import com.training.page.UserMenuDropDownPage;
 import com.training.pagefactory.PageFactory;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -19,12 +22,12 @@ import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Steps extends BaseTest {
+	
+	String UniqueName = RandomStringUtils.randomAlphanumeric(6);
 
-// public static String UniqueName;
 
 	PageFactory pageFactory = new PageFactory();
 	BasePage page;
-	public String UniqueNames = page.UniqueName;
 
 	@Before
 	public void setup() throws Exception {
@@ -45,8 +48,7 @@ public class Steps extends BaseTest {
 
 	@Then("user enter into Name {string}")
 	public void user_enter_into_name(String logicalName) {
-		// UniqueName=RandomStringUtils.randomAlphanumeric(6);
-		page.enterintoTextbox(logicalName, UniqueNames);
+		page.enterintoTextbox(logicalName, UniqueName);
 	}
 
 	@Then("click on  Button {string}")
@@ -59,6 +61,12 @@ public class Steps extends BaseTest {
 		page.checkTheBox(logicalName);
 	}
 
+	@Then("check the Box Selected {string}")
+	public void check_the_box_selected(String logicalName) {
+		page.checkRememberMeSelected(logicalName);
+	}
+	
+	
 	@Then("click on  Link {string}")
 	public void click_on_link(String logicalName) {
 		page.clickTheLink(logicalName);
@@ -119,30 +127,22 @@ public class Steps extends BaseTest {
 		page.validateText(logicalName, Value);
 	}
 
-//	@Then("validate ValueFromList {string} {string}")
-//	public void validate_value_from_list(String logicalName, String Value) {
-//	  page.validateValueFromList(logicalName, Value);
-//	}
-
 	@Then("validate ValueFromList {string}")
 	public void validate_value_from_list(String logicalName) {
-		page.validateValueAccountList(logicalName, UniqueNames);
+		page.validateValueList(logicalName, UniqueName);
 	}
 
 	@Then("validate ValueLeadList {string} {string}")
 	public void validate_value_lead_list(String logicalName, String a) {
-		page.validateLeadsList(logicalName, a);
+		page.validateValueList(logicalName, a);
 	}
 	
 	@Then("validate Dropdown {string}")
-	public void validate_dropdown(String logicalName) {
-		page.validateTheElements(logicalName);
+	public void validate_dropdown(String logicalName,DataTable dataTable) {
+		List<String>Expected=dataTable.asList();
+		page.validateTheElements(logicalName,Expected);
 	}
 
-	@Then("validate DropdownOppty {string}")
-	public void validate_dropdown_oppty(String logicalName) {
-		page.validateTheElementsOppty(logicalName);
-	}
 
 	@Then("validate title {string} {string}")
 	public void validate_title(String logicalName, String Value) {

@@ -30,6 +30,7 @@ Then click on  Button "UserMenuDropDownList"
 Then click on  Button "Logout"
 Given User is on "LoginPage"
 Then User ThreadSleepWait 2000
+Then check the Box Selected "RememberMe"
 And validate text "UsernameIdentification" "harshini@software.com"
 
 @TC4A

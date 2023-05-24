@@ -15,8 +15,17 @@ Then click on  Link "ClosePopUp"
 Given User is on "OpportunityPage"
 Then User ThreadSleepWait 2000
 Then click on  Link "VerifyOppurtunitiesDropDown"
-Then validate DropdownOppty "DropDownView"
-
+Then validate Dropdown "DropDownView"
+|All Opportunities|
+|Closing Next Month|
+|Closing This Month|
+|My Opportunities|
+|New Last Week|
+|New This Week|
+|Opportunity Pipeline|
+|Private|
+|Recently Viewed Opportunities|
+|Won|
 
 
 @TC16
